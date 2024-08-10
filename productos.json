@@ -1,0 +1,78 @@
+{ 
+    "productos": [
+    {
+        "id": "comida1",
+        "name": "Muzza",
+        "price": 6000,
+        "categoria": "comida-rapida",
+        "image": "./img/pizza.png"
+    },
+    {
+        "id": "comida2",
+        "name": "Napolitana",
+        "price": 6500,
+        "categoria": "comida-rapida",
+        "image": "./img/pizza.png"
+    },
+    {
+        "id": "comida3",
+        "name": "EmpanadasCarne",
+        "price": 6000,
+        "categoria": "comida-rapida",
+        "image": "./img/empanada.png"
+    },
+    {
+        "id": "comida4",
+        "name": "EmpanadasPollo",
+        "price": 6000,
+        "categoria": "comida-rapida",
+        "image": "./img/empanada.png"
+    },
+    {
+        "id": "comida5",
+        "name": "SandwichDeMila",
+        "price": 4000,
+        "categoria": "comida-rapida",
+        "image": "./img/milanesa.png"
+    },
+    {
+        "id": "comida6",
+        "name": "Fritas",
+        "price": 800,
+        "categoria": "comida-rapida",
+        "image": "./img/fritas.png"
+    }
+
+
+
+    ,
+    {
+      "id": "comida7",
+      "name": "Mix sopa ",
+      "categoria": "congelados",
+      "price": 2000,
+      "image": "./img/IMG-20240808-WA0023.jpg"
+    },
+    {
+      "id": "comida8",
+      "name": "Mix guisero",
+      "categoria": "congelados",
+      "price": 2000,
+      "image": "./img/IMG-20240808-WA0023.jpg"
+    },
+    {
+      "id": "comida9",
+      "name": "Pure de Tomates",
+      "categoria": "congelados",
+      "price": 2000,
+      "image": "./img/pure.jfif"
+    },
+    {
+      "id": "comida10",
+      "name": "Medallones Veganos",
+      "categoria": "congelados",
+      "price": 1000,
+      "image": "./img/medallones.jfif"
+    }
+]
+}

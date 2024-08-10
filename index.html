@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de pedidos</title>
+    <meta name="description" content="Realiza pedidos en línea. Disfruta de nuestras deliciosas comidas rápidas y recibe tu pedido en casa. Sistema de pedidos fácil y rápido.">
+
+    <meta name="keywords" content="comida rápida, pedidos en línea, delivery, sistema de comidas">
+    <link rel="icon" href="img/logo.ico" type="image/x-icon">
+    
+    <meta property="og:title" content="Sistema de Comidas Rápidas y Pedidos en Línea">
+    <meta property="og:description" content="Realiza pedidos en línea. Disfruta de nuestras deliciosas comidas rápidas y recibe tu pedido en casa.">
+    <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/cargadeimagenapp.appspot.com/o/photos%2Flogo.png?alt=media&token=105c73e4-bf8a-46f2-bee2-697227815fd7">
+    <meta property="og:url" content="https://www.comidarapidafsa.web.app">
+    <meta property="og:type" content="website">
+    
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "ComidaRapidaFsa",
+          "image": "https://firebasestorage.googleapis.com/v0/b/cargadeimagenapp.appspot.com/o/photos%2Flogo.png?alt=media&token=105c73e4-bf8a-46f2-bee2-697227815fd7",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Barrio La Alborada",
+            "addressLocality": "Formosa",
+            "addressRegion": "Formosa",
+            "postalCode": "3600",
+            "addressCountry": "Argentina"
+          },
+          "telephone": "+543704058731",
+          "servesCuisine": "Comida Rápida",
+          "url": "https://www.comidarapidafsa.web.app"
+        }
+        </script>
+
+    <script src="https://kit.fontawesome.com/2dfeadaf3c.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><img src="img/logo.png" alt=""></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/comida-rapida.html">Comida Rapida</a></li>
+                <li><a href="/congelados.html">Congelados</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-utensil-spoon"></i>
+                <i class="fas fa-utensils"></i>
+                <i class="fas fa-utensil-fork"></i>
+            </div>
+        </nav>
+
+    </header>
+
+<main>
+
+    <section class="nosotros">
+        <h1>Bienvenido a nuestro sitio online de pedidos de comidas!</h1><br>
+        <p>Somos un emprendimiento familiar ubicado en la provincia de Formosa Capital , 
+            hacemos comidas preparadas para disfrutar y también congelados listos para cocinar en casa.</p><br>
+    <h2>Acá podés realizar pedidos:</h2><br>
+    <div>
+    <button><a href="comida-rapida.html">Comida Rapida</a></button>
+    <button><a href="congelados.html"> Congelados</a></button>
+    </div>
+    </section>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="img/pure.jfif" alt="PureDeTomates">
+                <div class="caption">Puré de Tomates Natural</div>
+            </div>
+            <div class="slide">
+                <img src="img/comida-rapida.jpg" alt="ComidaRapida">
+                <div class="caption">Comida Rápida</div>
+            </div>
+            <div class="slide">
+                <img src="img/IMG-20240808-WA0023.jpg" alt="MixVerduras">
+                <div class="caption">Mix de verduras congeladas listas para cocinar</div>
+            </div>
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <div class="nav-bottom">
+        <div class="popup-whatsapp fadeIn">
+            <div class="content-whatsapp -top">
+                <button type="button" class="closePopup">
+                    <i class="material-icons icon-font-color">close</i>
+                </button>
+                <p>HOLA, 😊 Realiza tu pedido!!</p>
+            </div>
+            <div class="content-whatsapp -bottom">
+                <input class="whats-input" id="whats-in" type="text" Placeholder="Enviar mensaje..." />
+                <button class="send-msPopup" id="send-btn" type="button">
+                    <i class="material-icons icon-font-color--black">send</i>
+                </button>
+            </div>
+        </div>
+        <button type="button" id="whats-openPopup" class="whatsapp-button">
+            <img class="icon-whatsapp" src="img/whatsapp-brands.svg">
+        </button>
+        <div class="circle-anime"></div>
+    </div>
+    <br>
+    <br>
+
+</main>
+
+<footer>
+    <div class="container-footer">
+      <p class="text-footer">&copy; Hecho por <span>EmanuelFantin</span> 2024</p>
+    </div>
+    <div class="social-footer">
+      <a href="mailto:fantinemanuel@gmail.com?Subject=Ví%20tú%20portafolio%20en%20linea%20y%20quisiera%20ponerme%20en%20contacto" class="fa-solid fa-envelope" target="_blank"></a>
+      <a href="https://github.com/EmanuelFantin" class="fa fa-github" target="_blank"></a>
+      <a href="https://www.linkedin.com/in/emanuelfantin" class="fa fa-linkedin" target="_blank"></a>
+      <a href="https://x.com/i/flow/fantinemanuel" class="fa fa-x" target="_blank"></a>
+      <a href="https://www.facebook.com/fantinemanuel" class="fa fa-facebook" target="_blank"></a>
+      <a href="https://www.instagram.com/emanuelfantin/" class="fa fa-instagram" target="_blank"></a>
+    </div>
+  </footer>
+
+
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.min.js"></script>
+        
+
+</body>
+</html>
