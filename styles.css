@@ -453,7 +453,8 @@ footer {
   width: 100%;
 }
 
-.text-footer span {
+.text-footer a {
+  text-decoration: none;
   color: #568d1b; 
 }
 .social-footer {

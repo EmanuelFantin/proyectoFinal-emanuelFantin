@@ -35,7 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(nextSlide, 3000); // Cambia cada 3 segundos
 });
 
-// seccion de pedidos
+document.addEventListener('DOMContentLoaded', function () {
+    // Selecciona todos los <a> con la clase 'elegirPedido'
+    const elegirPedidoLinks = document.querySelectorAll('a.elegirPedido');
+
+    // Carga el archivo de sonido
+    const clickSound = new Audio('/sound/sound-elegirPedido.mp3'); // Asegúrate de que la ruta sea correcta
+
+    // Agrega el event listener a cada enlace
+    elegirPedidoLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            clickSound.play();
+        });
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     fetch('productos.json')
@@ -84,9 +97,13 @@ function populateMenu(data) {
 
 function addQuantityControls() {
     const quantityControls = document.querySelectorAll('.quantity button');
-    
+    const sound = new Audio('./sound/button-click.mp3'); // Cambia la ruta al archivo de sonido según corresponda
+
     quantityControls.forEach(button => {
         button.addEventListener('click', function () {
+            // Reproduce el sonido cada vez que se hace clic en un botón
+            sound.play();
+
             // Obtiene el input y el checkbox asociado al control de cantidad.
             const input = this.parentNode.querySelector('input');
             const checkbox = this.parentNode.parentNode.previousElementSibling;
@@ -115,6 +132,12 @@ function addQuantityControls() {
     });
 
     document.getElementById('sendOrder').addEventListener('click', function () {
+        // Cargar el archivo de sonido
+        const sendOrderSound = new Audio('/sound/sound-sendOrder.mp3'); // Asegúrate de que la ruta sea correcta
+    
+        // Reproduce el sonido al hacer clic en 'sendOrder'
+        sendOrderSound.play();
+    
         const checkedBoxes = document.querySelectorAll('#menu input[type="checkbox"]:checked');
         
         // Crea un array de objetos con el nombre del ítem, cantidad y precio usando lodash.
@@ -124,7 +147,7 @@ function addQuantityControls() {
             const price = parseFloat(label.querySelector('.price').textContent.replace('$', ''));
             return { foodItem: checkbox.value, quantity, price };
         });
-
+    
         // Validación: verifica si alguna cantidad es menor o igual a 0.
         const invalidSelection = _.some(order, item => item.quantity <= 0);
         if (invalidSelection) {
@@ -136,10 +159,10 @@ function addQuantityControls() {
             }).showToast();
             return;
         }
-
+    
         // Calcula el precio total del pedido usando lodash.
         const totalPrice = _.sumBy(order, item => item.price * item.quantity);
-
+    
         if (order.length > 0) {
             // Si hay un pedido válido, muestra el resumen en un modal.
             const message = `Hola, me gustaría pedir:\n${_.map(order, item => `${item.quantity} x ${item.foodItem} ($${(item.price * item.quantity).toFixed(2)})`).join('\n')}\nTotal: $${totalPrice.toFixed(2)}`;
@@ -153,6 +176,7 @@ function addQuantityControls() {
             }).showToast();
         }
     });
+    
 
     // Escucha el evento para cerrar el modal de confirmación.
     document.getElementById('close-modal').addEventListener('click', function () {
@@ -160,13 +184,17 @@ function addQuantityControls() {
     });
 
     // Escucha el evento para confirmar el pedido y abrir WhatsApp con el mensaje preformateado.
-    document.getElementById('confirm-order').addEventListener('click', function () {
-        const message = document.getElementById('modal-message').textContent;
-        const phoneNumber = '543704058731';
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-        hideModal();
-    });
+document.getElementById('confirm-order').addEventListener('click', function () {
+    const message = document.getElementById('modal-message').textContent;
+    const phoneNumber = '543704058731';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    hideModal();
+
+    // Reproduce el sonido al confirmar el pedido
+    let sound = new Audio('./sound/sound-enviar-pedido.mp3');
+    sound.play();
+});
 }
 
 function showModal(message) {
@@ -182,6 +210,7 @@ function hideModal() {
     const modal = document.getElementById('modal-confirmation');
     modal.style.display = 'none';
 }
+
 
 // Funcionalidad del botón de WhatsApp para abrir una ventana emergente y enviar mensajes.
 popupWhatsApp = () => {
